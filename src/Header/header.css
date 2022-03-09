@@ -1,0 +1,14 @@
+input[name=searchBox]{
+    padding: 10px;
+    width: 100%;
+    outline: none;
+}
+.container{
+    padding: 30px;
+}
+
+header{
+    margin: auto;
+    width: 500px;
+    text-align: center;
+}
