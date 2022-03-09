@@ -6,7 +6,7 @@ const Header = ({getSearch}) => {
       <div className='container'>
       <header>
       <h1>
-        All Naruto Images
+        All Anime Characters
     </h1>
     <Search getSearch={getSearch}/>
       </header>
