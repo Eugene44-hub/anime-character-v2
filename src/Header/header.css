@@ -1,14 +1,21 @@
 input[name=searchBox]{
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 100%;
     outline: none;
 }
 .container{
     padding: 30px;
+    
 }
 
 header{
-    margin: auto;
-    width: 500px;
     text-align: center;
+    margin:auto;
+}
+
+@media screen and (min-width:900px){
+header{
+    width: 40%;
+}
 }

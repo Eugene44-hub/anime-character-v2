@@ -4,7 +4,7 @@ const Header = ({getSearch}) => {
 
   return (
       <div className='container'>
-      <header style={{margin:"auto"}}>
+      <header>
       <h1>
         All Anime Characters
     </h1>
