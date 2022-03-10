@@ -1,43 +1,37 @@
-// import { createContext,useReducer } from "react";
-// import AppReducer from "./AppReducer";
+import { createContext,useReducer } from "react";
+import AppReducer from "./AppReducer";
 
-// const initialState = {
-//     data:{
-//         data:[],
-//         pagination:{},
-//         meta:{},
-//     }
-// }
+const initialState = {}
 
 
-// export const GlobalContext = createContext(initialState)
+export const GlobalContext = createContext(initialState)
 
 
-// export const GlobalProvider = ({ children }) => {
+export const GlobalProvider = ({ children }) => {
 
-// const [state,dispatch]=useReducer(AppReducer,initialState)
+const [state,dispatch]=useReducer(AppReducer,initialState)
 
-// const addToGallery=(data)=>{
+const addToGallery=(data)=>{
+dispatch({
+    type:"LOAD-TO-GALLERY",
+    payload:data
+})
+}
+
+// const searchGallery=(input)=>{
 // dispatch({
-//     type:"LOAD-TO-GALLERY",
-//     payload:data
+//     type:"SEARCH",
+//     payload:input
 // })
 // }
 
-// // const searchGallery=(input)=>{
-// // dispatch({
-// //     type:"SEARCH",
-// //     payload:input
-// // })
-// // }
 
+  return ( <GlobalContext.Provider value={{
+        data:state,
+        addToGallery
+        // searchGallery
+    }}>
+    {children}
+    </GlobalContext.Provider>)
 
-//   return ( <GlobalContext.Provider value={{
-//         data: state,
-//         addToGallery
-//         // searchGallery
-//     }}>
-//     {children}
-//     </GlobalContext.Provider>)
-
-// }
+}

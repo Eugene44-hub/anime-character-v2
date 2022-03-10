@@ -1,21 +1,22 @@
 import { useEffect, useState, useContext } from "react";
 import Gallery from "./gallery/Gallery";
-// import { GlobalContext } from './context/GlobalState'
+import { GlobalContext } from './context/GlobalState'
 import Header from "./Header/Header";
 import robot from "./images/tweaking-robot.gif";
 
 function App() {
   const [loader, setLoader] = useState(true);
-  // const context= useContext(GlobalContext)
-  const [characters, setCharacters] = useState([]);
+  const context= useContext(GlobalContext)
+  // console.log(context);
+  // const [characters, setCharacters] = useState([]);
   const [find, setFind] = useState("");
-  // const {data}=context.data.data
   // console.log(data);
 
   // const characters=data.data&&data.data;
   // const characters=data.data;
   // console.log(data);
-  // const {addToGallery}=context
+  const {addToGallery}=context
+  // console.log(addToGallery);
   // const {searchGallery}=context
 
   // context.data.map(item=>console.log(item.name));
@@ -24,17 +25,14 @@ function App() {
       const res = await fetch(`https://api.jikan.moe/v4/characters?q=${find}`);
       const fetchedData = await res.json();
       // console.log(fetchedData);
-      // addToGallery(fetchedData)
+      addToGallery(fetchedData)
       // setImages(data);
 
       setLoader(false);
       return fetchedData;
     };
     getData()
-      .then((res) =>
-        setCharacters(res)
-      )
-      .catch((err) => console.log(err));
+      
   }, [find]);
   // console.log(characters);
 
@@ -60,7 +58,7 @@ function App() {
   return (
     <div className="App">
       <Header getSearch={getSearch} />
-      <Gallery characters={characters} loader={loader} robot={robot} />
+      <Gallery loader={loader} robot={robot} />
     </div>
   );
 }

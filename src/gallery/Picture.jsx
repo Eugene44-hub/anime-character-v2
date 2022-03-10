@@ -9,7 +9,7 @@ const Picture = ({ source, name, about, page }) => {
   // }
   // aboutFunc()
   // console.log(`${about.slice(0,200)} ...`)
-  console.log(about&&about.substr(0,1))
+  // console.log(about&&about.substr(0,1))
   return (
     <div className="picture">
       <img src={source} alt="" />
